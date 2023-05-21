@@ -16,3 +16,14 @@ steps:
     organization: 'pauarcila'
     projectKey: 'PauArcila_microservicio-spring'
     scannerMode: 'Other'
+  displayName: 'SonarCloud Prepare'
+- task: Gradle@3
+  inputs:
+    gradleWrapperFile: 'gradlew'
+    tasks: 'sonarqube'
+    publishJUnitResults: false
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: true
+    sqGradlePluginVersionChoice: 'specify'
+    sonarQubeGradlePluginVersion: '3.3'
+    spotBugsAnalysis: false
