@@ -26,5 +26,5 @@ steps:
     javaHomeOption: 'JDKVersion'
     sonarQubeRunAnalysis: true
     sqGradlePluginVersionChoice: 'specify'
-    sonarQubeGradlePluginVersion: '3.3'
+    sonarQubeGradlePluginVersion: '3.5.0.2730'
     spotBugsAnalysis: false
