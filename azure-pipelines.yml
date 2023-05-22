@@ -47,13 +47,13 @@ steps:
 #     repository: 'pauarcila/microservicio-spring'
 #     command: 'push'
 
-- job: 
-  pool: 'Default'
-  steps:
-  - task: Docker@2
-    inputs:
-      connectionType: 'None'
-      command: 'apply'
-      arguments: '-f deployment-app.yaml'
+  - job: 
+    pool: 'Default'
+    steps:
+    - task: Docker@2
+      inputs:
+        connectionType: 'None'
+        command: 'apply'
+        arguments: '-f deployment-app.yaml'
   
   # - script: kubectl port-forward deploy/microservicio-spring-deployment 8080:8080
