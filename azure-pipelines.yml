@@ -29,31 +29,41 @@ steps:
     sonarQubeGradlePluginVersion: '3.5.0.2730'
     spotBugsAnalysis: false
 
-# - task: Docker@2
-#   inputs:
-#     containerRegistry: 'Docker'
-#     command: 'login'
-  
-# - task: Docker@2
-#   inputs:
-#     containerRegistry: 'Docker'
-#     repository: 'pauarcila/microservicio-spring'
-#     command: 'build'
-#     Dockerfile: '**/Dockerfile'
+  # - task: Docker@2
+  #   inputs:
+  #     containerRegistry: 'Docker'
+  #     command: 'login'
 
-# - task: Docker@2
-#   inputs:
-#     containerRegistry: 'Docker'
-#     repository: 'pauarcila/microservicio-spring'
-#     command: 'push'
+  # - task: Docker@2
+  #   inputs:
+  #     containerRegistry: 'Docker'
+  #     repository: 'pauarcila/microservicio-spring'
+  #     command: 'build'
+  #     Dockerfile: '**/Dockerfile'
 
-  - job: 
-    pool: 'Default'
-    steps:
-      - task: Docker@2
-        inputs:
-          connectionType: 'None'
-          command: 'apply'
-          arguments: '-f deployment-app.yaml'
-    
-  # - script: kubectl port-forward deploy/microservicio-spring-deployment 8080:8080
+  # - task: Docker@2
+  #   inputs:
+  #     containerRegistry: 'Docker'
+  #     repository: 'pauarcila/microservicio-spring'
+  #     command: 'push'
+
+  # - job: 
+  #   pool: 'Default'
+  #   steps:
+  #     - task: Docker@2
+  #       inputs:
+  #         connectionType: 'None'
+  #         command: 'apply'
+  #         arguments: '-f deployment-app.yaml'
+
+  # # - script: kubectl port-forward deploy/microservicio-spring-deployment 8080:8080
+
+jobs:
+- job:
+  pool: Default
+  steps:
+  - task: Docker@2
+    inputs:
+      connectionType: None
+      command: apply
+      arguments: '-f deployment-app.yaml'
