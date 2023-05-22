@@ -47,9 +47,9 @@ steps:
 #     repository: 'pauarcila/microservicio-spring'
 #     command: 'push'
 
-  - job: 
-    pool: 'Default'
-    steps:
+- job: 
+  pool: 'Default'
+  steps:
     - task: Docker@2
       inputs:
         connectionType: 'None'
