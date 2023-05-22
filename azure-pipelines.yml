@@ -6,8 +6,9 @@
 trigger:
 - azure-pipelines
 
-pool:
-  vmImage: ubuntu-latest
+pool: Default
+# pool:
+#   vmImage: ubuntu-latest
 
 steps:
 - task: SonarCloudPrepare@1
@@ -57,13 +58,3 @@ steps:
   #         arguments: '-f deployment-app.yaml'
 
   # # - script: kubectl port-forward deploy/microservicio-spring-deployment 8080:8080
-
-jobs:
-- job:
-  pool: Default
-  steps:
-  - task: Docker@2
-    inputs:
-      connectionType: None
-      command: apply
-      arguments: '-f deployment-app.yaml'
