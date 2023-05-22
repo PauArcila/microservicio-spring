@@ -1,8 +1,11 @@
 FROM eclipse-temurin:11
-RUN mkdir /opt/app
-COPY japp.jar /opt/app
-CMD ["java", "-jar", "/opt/app/japp.jar"]
+# RUN mkdir /opt/app
+# COPY japp.jar /opt/app
+# CMD ["java", "-jar", "/opt/app/japp.jar"]
 EXPOSE 8080
+ADD microservicio-spring.jar /app/microservicio-spring.jar
+WORKDIR /app
+CMD java -jar microservicio-spring.jar
 
 # FROM openjdk:8-jdk-alpine
 # VOLUME /tmp
