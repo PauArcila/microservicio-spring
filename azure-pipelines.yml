@@ -29,10 +29,10 @@ steps:
     sonarQubeGradlePluginVersion: '3.5.0.2730'
     spotBugsAnalysis: false
 
-  - task: Docker@2
-    inputs:
-      containerRegistry: 'Docker'
-      command: 'login'
+  # - task: Docker@2
+  #   inputs:
+  #     containerRegistry: 'Docker'
+  #     command: 'login'
   
   - task: Docker@2
     inputs:
